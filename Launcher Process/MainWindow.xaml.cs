@@ -76,7 +76,6 @@ namespace Launcher_Process
             }
             CollectionProcess.Items.Clear();
             StackProcess stackProcess1 = new StackProcess();
-            // stackProcess.Update();
             _viewWindows = stackProcess1.OpenLoad();
             foreach (var item in _viewWindows)
             {
