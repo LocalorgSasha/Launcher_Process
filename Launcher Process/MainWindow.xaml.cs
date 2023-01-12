@@ -137,22 +137,18 @@ namespace Launcher_Process
                     CurrentTextBox.Text = $" completed: {GetName(_currentProcessItem)}\n {(int)elapsedTime.TotalHours} hour, {Math.Round(elapsedTime.TotalMinutes,2)} minute";
                     stackProcess.Update( _currentProcessItem,elapsedTime);
                     TotalTextBox.Clear();
+                    CollectionProcess.Items.Clear();
+                    CollectionProcess.IsHitTestVisible = true;
                     foreach (var item in stackProcess.OpenLoad())
                     {
                         TotalTextBox.Text += $" {GetName(item.Key)}: \n {(int)item.Value.TotalHours} hour, {Math.Round(item.Value.TotalMinutes)} minute;\n";
-                    }
-                    CollectionProcess.Items.Clear();
-                    CollectionProcess.IsHitTestVisible = true;
-                   
-                    StackProcess process = new StackProcess();
-                    foreach (var item in process.OpenLoad())
-                    {
                         CollectionProcess.Items.Add(GetName(item.Key));
                     }
                     return CurrentTextBox.Text ;
                 });
                 
             }
+            
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
